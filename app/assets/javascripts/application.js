@@ -14,3 +14,28 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//alert('Hello World!');
+
+greeting_doubler = function(phrase) {
+    alert(phrase + " " + phrase);
+};
+
+greeting_doubler('Hello World!');
+
+message_appender = function(content) {
+    $('#messages-table').append(content);
+}
+
+/* messages_appender in CoffeeScript
+message_appender = (content) ->
+    $('#messages-table').append content
+*/
+
+// Doesn't work because no DOM defined yet
+$('#messages-table').append('Hello World!');
+
+$(document).on('turbolinks:load', function() {
+    //$('#messages-table').append('Hello World!');
+    message_appender('Hello World!');
+});
